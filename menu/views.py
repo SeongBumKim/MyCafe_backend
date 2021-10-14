@@ -45,3 +45,10 @@ def book_delete(request, pk):
     book = Book.objects.get(id=pk)
     book.delete()
     return Response('Deleted')
+
+@api_view(['GET'])
+def menu_catagory_list(request, catagory):
+    menus = Menu.objects()
+    serializer = MenuSerializer(menus, many=True)
+    return Response(serializer.data)
+
