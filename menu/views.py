@@ -15,7 +15,7 @@ def menu_list(request):
 @api_view(['GET'])
 def menu_detail(request, pk):
     menu = Menu.objects.get(id=pk)
-    serializer = MenuSerializer(book, many=False)
+    serializer = MenuSerializer(menu, many=False)
     return Response(serializer.data)
 
 @api_view(['GET'])
