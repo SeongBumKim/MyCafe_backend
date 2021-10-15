@@ -5,7 +5,7 @@ from django.contrib import admin
 from menu.models import Menu, Order, OrderedMenu
 
 
-admin.site.register(Menu)
+# admin.site.register(Menu)
 
 admin.site.register(Menu),
 admin.site.register(Order),
