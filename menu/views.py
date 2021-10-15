@@ -2,8 +2,8 @@ from django.db.models.query import QuerySet
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from menu.models import Menu
-from menu.serializer import MenuSerializer
+from menu.models import Menu, Order
+from menu.serializer import MenuSerializer, OrderSerializer
 
 
 @api_view(['GET'])
@@ -21,9 +21,16 @@ def menu_detail(request, pk):
    
     return Response(serializer.data)
 
+# @api_view(['GET'])
+# def menu_search(request, keyword):
+#     pass
+
+
 @api_view(['GET'])
-def menu_search(request, keyword):
-    pass
+def order_list(request):
+    orders = Order.objects.all()
+    serializer = OrderSerializer(orders, many=True)
+    return Response(serializer.data)
 
 
 # @api_view(['POST'])
