@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
@@ -14,8 +15,10 @@ def menu_list(request):
 
 @api_view(['GET'])
 def menu_detail(request, pk):
+    print(pk)
     menu = Menu.objects.get(id=pk)
     serializer = MenuSerializer(menu, many=False)
+   
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -47,8 +50,8 @@ def menu_search(request, keyword):
 #     return Response('Deleted')
 
 @api_view(['GET'])
-def menu_catagory_list(request, catagory):
-    menus = Menu.objects()
+def menu_category_list(request, ca):
+    menus = Menu.objects.filter(category=ca)
     serializer = MenuSerializer(menus, many=True)
     return Response(serializer.data)
 
