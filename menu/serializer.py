@@ -13,7 +13,7 @@ class MenuSerializer(serializers.HyperlinkedModelSerializer):
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Order
-        fields = ['id', 'name', 'orderNum', 'totalPrice', 'orderDate', 'paymentState']
+        fields = ['id', 'name', 'totalPrice', 'orderDate']
 
 
 class OrderedMenuSerializer(serializers.HyperlinkedModelSerializer):
