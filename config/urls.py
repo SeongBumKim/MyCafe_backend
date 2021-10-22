@@ -22,4 +22,5 @@ urlpatterns = [
     path('', views.menu_list, name="menu_list"),
     path('admin/', admin.site.urls),
     path('api/menu/', include('menu.urls')),
+    path('login/', include('login.urls')),
 ]
