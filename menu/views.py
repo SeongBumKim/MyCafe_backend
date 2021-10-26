@@ -10,6 +10,7 @@ from menu.serializer import MenuSerializer, OrderSerializer
 def menu_list(request):
     menus = Menu.objects.all()
     serializer = MenuSerializer(menus, many=True)
+    print(serializer)
     return Response(serializer.data)
 
 
@@ -18,7 +19,7 @@ def menu_detail(request, pk):
     print(pk)
     menu = Menu.objects.get(id=pk)
     serializer = MenuSerializer(menu, many=False)
-   
+    print(serializer)
     return Response(serializer.data)
 
 
